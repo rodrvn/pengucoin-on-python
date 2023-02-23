@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from datetime import datetime
 
 tiempo = datetime.today()
@@ -88,6 +88,7 @@ def cadena_completa():
         'cadena': cadena,
         'longitud': len(cadena)
     }
+    return render_template('cadena.html', response=response)
     return jsonify(response), 200
 
 if __name__ == '__main__':

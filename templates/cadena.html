@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    {% for cadena in response['cadena'] %}
+        <h1>Cadena {{ cadena['index'] }}</h1>
+        {% for transaccion in cadena['transacciones'] %}
+            <p>{{ transaccion }}</p>
+        {% endfor %}
+        <p>{{ cadena }}</p>
+    {% endfor %}
     
 </body>
 </html>
