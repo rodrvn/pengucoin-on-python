@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form action="{{ url_for('nueva_transaccion', id = nueva_transaccion) }}" method="POST">
+
+        <textarea name="nueva_transaccion" id="nueva_transaccion" cols="30" rows="5" placeholder="rodri 10 pengucoins a satoshi"></textarea>
+
+        <div>
+            <a href="/nueva_transaccion">
+                <button type="submit">nueva transaccion</button>
+            </a>
+        </div>
+    </form>
 </body>
 </html>
