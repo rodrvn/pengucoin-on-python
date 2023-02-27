@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nueva transaccion</title>
 </head>
 <body>
     <form action="{{ url_for('nueva_transaccion', id = nueva_transaccion) }}" method="POST">
@@ -13,9 +13,17 @@
 
         <div>
             <a href="/nueva_transaccion">
-                <button type="submit">nueva transaccion</button>
+                <button type="submit">enviar transaccion</button>
             </a>
         </div>
+
+        <a href="/cerrar">
+            <button type="button">Cerrar bloque</button>
+        </a>
+
+        <a href="/cadena">
+            <button type="button">Ver toda la cadena</button>
+        </a>
     </form>
 </body>
 </html>
