@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadena completa</title>
-</head>
+{% extends 'base.html' %}
+    
+    {% block tittle %} Ver cadena {% endblock %}
 
-<body>
+    {% block bodycontent %}
+
     <form action="{{ url_for('cadena_completa') }}" method="get">
         <a href="/transaccion/nueva">
             <button type="button">Agregar nueva transaccion</button>
@@ -29,7 +25,8 @@
         
             
         {% endfor %}
+
     </form>
+
     
-</body>
-</html>
+    {% endblock %}

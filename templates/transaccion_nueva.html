@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nueva transaccion</title>
-</head>
-<body>
+{% extends 'base.html' %}
+    
+    {% block tittle %} transaccion nueva {% endblock %}
+
+    {% block bodycontent %}
+
+
     <form action="{{ url_for('nueva_transaccion', id = nueva_transaccion) }}" method="POST">
 
         <textarea name="nueva_transaccion" id="nueva_transaccion" cols="30" rows="5" placeholder="rodri 10 pengucoins a satoshi"></textarea>
@@ -25,5 +23,7 @@
             <button type="button">Ver toda la cadena</button>
         </a>
     </form>
-</body>
-</html>
+
+
+    
+    {% endblock %}
