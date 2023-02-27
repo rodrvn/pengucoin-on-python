@@ -6,14 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    {% for cadena in response['cadena'] %}
-        <h1>Cadena {{ cadena['index'] }}</h1>
-        {% for transaccion in cadena['transacciones'] %}
-            <p>{{ transaccion }}</p>
+    <form action="{{ url_for('cadena_completa') }}" method="get">
+        {% for bloque in cadena %}
+
+            {{ bloque }}
+            <h1>index: {{ bloque['index'] }}</h1>
+
+            {% for transaccion in bloque['transacciones'] %}
+
+                <h1>transaccion: {{ transaccion }}</h1>
+            {% endfor %}
+            <h1>tiempo: {{ bloque['timestamp'] }}</h1>
+            <h1>anterior hash: {{ bloque['hash_anterior'] }}</h1>
+            <h1>hash del bloque actual: {{ bloque['hash'] }}</h1>
+
+            <h1>siguiente bloque:</h1>
+        
+            
         {% endfor %}
-        <p>{{ cadena }}</p>
-    {% endfor %}
+    </form>
     
 </body>
 </html>
