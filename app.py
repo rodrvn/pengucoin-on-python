@@ -101,6 +101,10 @@ app = Flask(__name__)
 pengucoin = Blockchain()
 
 
+@app.route('/')
+def index():
+    return render_template('base.html')
+
 @app.route('/cerrar', methods=['GET', 'POST'])
 def minar():
     if request.method == 'POST':
