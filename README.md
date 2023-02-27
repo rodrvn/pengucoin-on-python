@@ -1,2 +1,3 @@
 # pengucoin-on-python
-hola XD
+
+Web de blockchain con python (Pengucoin)
