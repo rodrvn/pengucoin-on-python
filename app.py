@@ -119,37 +119,36 @@ app = Flask(__name__)
 pengucoin = Blockchain()
 
 
-@app.route('/cerrar', methods=['GET'])
-def mine():
-    bloque = pengucoin.cerrar_bloque()
-    response = {
-        'mensaje': "Nuevo Bloque Cerrado",
-        'index': bloque.index,
-        'transacciones': bloque.transacciones,
-        'timestamp': bloque.timestamp
-    }
-    return jsonify(response), 200
+@app.route('/cerrar', methods=['GET', 'POST'])
+def minar():
+    if request.method == 'POST':
+        pengucoin.cerrar_bloque()
+    return render_template('minar.html')
 
-@app.route('/transaccion/nueva', methods=['POST'])
+@app.route('/transaccion/nueva', methods=['GET', 'POST'])
 def nueva_transaccion():
-    values = request.get_json()
+    if request.method == 'POST':
+        transaccion = request.form['nueva_transaccion']
+        nueva_transaccion = pengucoin.agregar_transaccion(transaccion)
+        
+        # Esto hice para probar
+        # pengucoin.cerrar_bloque()
 
-    index = pengucoin.agregar_transaccion(values['transaccion'])
-
-    response = {'mensaje': f'La transaccion se ha agregado correctamente.'}
-    return jsonify(response), 201
+        # for bloque in pengucoin.cadena:
+        #     print(bloque.__dict__)
+        #     print()
+        #     print('---------------------------------------------')
+        return render_template('transaccion_nueva.html'), nueva_transaccion
+    return render_template('transaccion_nueva.html')
 
 @app.route('/cadena', methods=['GET'])
 def cadena_completa():
     cadena = []
     for bloque in pengucoin.cadena:
         cadena.append(bloque.__dict__)
-    response = {
-        'cadena': cadena,
-        'longitud': len(cadena)
-    }
-    return render_template('cadena.html', response=response)
-    return jsonify(response), 200
+    
+    return render_template('cadena.html', cadena=cadena)
+    
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8000)
