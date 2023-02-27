@@ -92,26 +92,8 @@ class Blockchain:
         return nuevo_bloque.index
     
 
-# pengucoin = Blockchain()
 
-# Agregar transaccion
-# pengucoin.agregar_transaccion('Hola que tal?')
-# pengucoin.agregar_transaccion('Bien y vos')
-
-# minar
-# pengucoin.cerrar_bloque()
-
-# pengucoin.agregar_transaccion("bien tambien")
-# pengucoin.cerrar_bloque()
-
-# pengucoin.agregar_transaccion("bien tambien gracias")
-# pengucoin.cerrar_bloque()
-
-# Ver cadena
-# for bloque in pengucoin.cadena:
-#     print(bloque.__dict__)
-#     print()
-#     print('---------------------------------------------')
+## Comienza el flask ##
 
 
 app = Flask(__name__)
@@ -130,14 +112,6 @@ def nueva_transaccion():
     if request.method == 'POST':
         transaccion = request.form['nueva_transaccion']
         nueva_transaccion = pengucoin.agregar_transaccion(transaccion)
-        
-        # Esto hice para probar
-        # pengucoin.cerrar_bloque()
-
-        # for bloque in pengucoin.cadena:
-        #     print(bloque.__dict__)
-        #     print()
-        #     print('---------------------------------------------')
         return render_template('transaccion_nueva.html'), nueva_transaccion
     return render_template('transaccion_nueva.html')
 
