@@ -5,28 +5,46 @@
     {% block bodycontent %}
 
     <form action="{{ url_for('cadena_completa') }}" method="get">
+<!-- {'index': 0, 'transacciones': ['Genesis'], 'timestamp': 1677545915.5585237, 'hash_anterior': '0', 'nonce': 0, 'hash': '20b9b0241b9f219f80e538c648ad0af4b3a728941d09313448cb9fce4de2a8dd'}  -->
+        {% for bloque in cadena %}
+        <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+            <div class="px-4 py-5 sm:px-6">
+              <h3 class="text-base font-semibold leading-6 text-gray-900">Informacion del bloque {{ bloque['index'] }}</h3>
+              <p class="mt-1 max-w-2xl text-sm text-gray-500">Aca podes ver toda la info del bloque</p>
+            </div>
+            <div class="border-t border-gray-200">
+              <dl>
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="text-sm font-medium text-gray-500">Nonce</dt>
+                  <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"> {{ bloque['nonce'] }} </dd>
+                </div>
+                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="text-sm font-medium text-gray-500">Transaccion</dt>
+                  {% for transaccion in bloque['transacciones'] %}
+                  <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ transaccion }}</dd>
+                  {% endfor %}
+                </div>
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="text-sm font-medium text-gray-500">timestamp</dt>
+                  <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ bloque['timestamp'] }}</dd>
+                </div>
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="text-sm font-medium text-gray-500">Hash anterior</dt>
+                  <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ bloque['hash_anterior'] }}</dd>
+                </div>
+                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="text-sm font-medium text-gray-500">Hash actual</dt>
+                  <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ bloque['hash'] }}</dd>
+                
+            </div>
+          </div>
+        {% endfor %}
+          
+
         <a href="/transaccion/nueva">
             <button type="button">Agregar nueva transaccion</button>
         </a>
-        {% for bloque in cadena %}
-
-            {{ bloque }}
-            <h1>index: {{ bloque['index'] }}</h1>
-
-            {% for transaccion in bloque['transacciones'] %}
-
-                <h1>transaccion: {{ transaccion }}</h1>
-            {% endfor %}
-            <h1>tiempo: {{ bloque['timestamp'] }}</h1>
-            <h1>anterior hash: {{ bloque['hash_anterior'] }}</h1>
-            <h1>hash del bloque actual: {{ bloque['hash'] }}</h1>
-
-            <h1>siguiente bloque:</h1>
-        
-            
-        {% endfor %}
-
     </form>
 
-    
+
     {% endblock %}
