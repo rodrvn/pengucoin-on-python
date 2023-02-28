@@ -14,7 +14,7 @@
       <div class="flex lg:flex-1">
         <a href="/" class="-m-1.5 p-1.5">
           <span class="sr-only">Pengucoins</span>
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+          <img src="{{ url_for('static', filename='pengucoin_2.0.png') }}" class="mr-4 h-12" alt="Logo">
         </a>
       </div>
       <div class="flex lg:hidden">
@@ -77,15 +77,15 @@
     <div class="inset-x-0 bottom-0 mx-auto max-w-7xl overflow-hidden py-20 px-6 sm:py-24 lg:px-8">
       <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
         <div class="pb-6">
-          <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Agregar transaccion</a>
+          <a href="/transaccion/nueva" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Agregar transaccion</a>
         </div>
   
         <div class="pb-6">
-          <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Cerrar bloque</a>
+          <a href="/cerrar" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Cerrar bloque</a>
         </div>
   
         <div class="pb-6">
-          <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Mirar todos los bloques</a>
+          <a href="/cadena" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Mirar todos los bloques</a>
         </div>
       </nav>
 
