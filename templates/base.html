@@ -6,30 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block tittle %}  {% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    {% block js %}  {% endblock %}
 </head>
 
-<header class="bg-white">
+<header class="bg-white inset-x-0 top-0">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
-        <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
+        <a href="/" class="-m-1.5 p-1.5">
+          <span class="sr-only">Pengucoins</span>
           <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
         </a>
       </div>
       <div class="flex lg:hidden">
         <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-          <span class="sr-only">Open main menu</span>
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
+          <span class="sr-only">Menu principal</span>
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Agregar transaccion</a>
+        <a href="/transaccion/nueva" class="text-sm font-semibold leading-6 text-gray-900">Agregar transaccion</a>
   
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Cerrar bloque</a>
+        <a href="/cerrar" class="text-sm font-semibold leading-6 text-gray-900">Cerrar bloque</a>
   
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Ver bloques</a>
+        <a href="/cadena" class="text-sm font-semibold leading-6 text-gray-900">Ver bloques</a>
   
         <a href="#" class="text-sm font-semibold leading-6 text-gray-900">+Info</a>
       </div>
@@ -45,12 +43,7 @@
             <span class="sr-only">Your +Info</span>
             <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
           </a>
-          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-            <span class="sr-only">Close menu</span>
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+         
         </div>
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
@@ -80,8 +73,8 @@
 </body>
 
 
-<footer class="bg-white">
-    <div class="mx-auto max-w-7xl overflow-hidden py-20 px-6 sm:py-24 lg:px-8">
+<footer class="inset-x-0 bottom-0 bg-white">
+    <div class="inset-x-0 bottom-0 mx-auto max-w-7xl overflow-hidden py-20 px-6 sm:py-24 lg:px-8">
       <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
         <div class="pb-6">
           <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Agregar transaccion</a>
