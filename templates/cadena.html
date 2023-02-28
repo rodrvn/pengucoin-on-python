@@ -5,12 +5,12 @@
     {% block bodycontent %}
 
     <form action="{{ url_for('cadena_completa') }}" method="get">
-<!-- {'index': 0, 'transacciones': ['Genesis'], 'timestamp': 1677545915.5585237, 'hash_anterior': '0', 'nonce': 0, 'hash': '20b9b0241b9f219f80e538c648ad0af4b3a728941d09313448cb9fce4de2a8dd'}  -->
+
         {% for bloque in cadena %}
         <div class="overflow-hidden bg-white shadow sm:rounded-lg">
             <div class="px-4 py-5 sm:px-6">
               <h3 class="text-base font-semibold leading-6 text-gray-900">Informacion del bloque {{ bloque['index'] }}</h3>
-              <p class="mt-1 max-w-2xl text-sm text-gray-500">Aca podes ver toda la info del bloque</p>
+              <p class="mt-1 max-w-2xl text-sm text-gray-500">Aca podes ver toda la info del bloque.</p>
             </div>
             <div class="border-t border-gray-200">
               <dl>
