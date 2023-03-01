@@ -1,10 +1,10 @@
 from flask import Flask, jsonify, request, render_template
 from datetime import datetime
 from hashlib import sha256
-import time
 import json
 
-tiempo = time.time()
+
+tiempo = str(datetime.today())
 
 class Bloque:
     def __init__(self, index, transacciones, timestamp, hash_anterior, nonce=0):
@@ -116,8 +116,10 @@ def nueva_transaccion():
     if request.method == 'POST':
         transaccion = request.form['nueva_transaccion']
         nueva_transaccion = pengucoin.agregar_transaccion(transaccion)
+    
         return render_template('transaccion_nueva.html'), nueva_transaccion
     return render_template('transaccion_nueva.html')
+
 
 @app.route('/cadena', methods=['GET'])
 def cadena_completa():
