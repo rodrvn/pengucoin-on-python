@@ -7,5 +7,5 @@ Web de blockchain con python (Pengucoin)
 
 - Crear entorno virtual(con "venv" o "pipenv")
 - Activar entorno virtual
-- Instalar los requirements.txt
+- Instalar los requirements.txt (con el entorno virtual activado)
 - Inicializar con python app.py
